@@ -46,10 +46,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const deadline = '2021-01-01';
 
+
     function getTimeRemaining(endtime) {
         const t = Date.parse(endtime) - Date.parse(new Date()),
+              timezone = new Date().getTimezoneOffset(),
               days = Math.floor(t / (1000 * 60 * 60 * 24)),
-              hours = Math.floor((t / (1000 * 60 * 60 * 60) % 24)),
+              hours = Math.floor((t / (1000 * 60 * 60) % 24) + (timezone/60)),
               minutes = Math.floor((t / 1000 / 60) % 60),
               seconds = Math.floor((t / 1000) % 60);
 
